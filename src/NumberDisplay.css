@@ -1,0 +1,46 @@
+.number-display {
+  margin-bottom: 24px;
+  margin-right: 24px;
+  display: inline-block;
+}
+.number-display__label {
+  color: red;
+  text-align: left;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.number-display__container {
+  background-color: black;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid red;
+  border-radius: 8px;
+}
+
+.number-display__digit {
+  color: red;
+  font-size: 30px;
+  height: 30px;
+  text-shadow: 0px 0px 10px red;
+  width: 40px;
+  line-height: 1;
+}
+
+.number-display--correct .number-display__label {
+  color: green;
+}
+
+.number-display--correct .number-display__container {
+  border: 2px solid green;
+}
+
+.number-display--correct .number-display__digit {
+  color: green;
+  text-shadow: 0px 0px 10px green;
+}
+
+.number-display--highlighted .number-display__container {
+  box-shadow: 0px 0px 8px red;
+}

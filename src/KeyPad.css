@@ -1,0 +1,29 @@
+
+.row {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  user-select: none;
+}
+
+.row .cell {
+  box-sizing: border-box;
+  display: inline-block;
+  font-family: 'Orbitron';
+  padding: 20px;
+  margin: 14px;
+  height: 120px;
+  width: 120px;
+  font-size: 48px;
+  border-radius: 8px;
+  border: 0;
+  background-color: rgba(62, 237, 255, 0);
+  border: 2px solid rgba(62, 237, 255, 1);
+  transition: background-color 0.2s;
+  color: rgba(62, 237, 255, 1);
+}
+
+.row .cell:active {
+  background-color: rgba(62, 237, 255, 1);
+
+}
