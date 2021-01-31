@@ -71,7 +71,7 @@ function App() {
           </div>
         </div>
       ) : (
-        <img src="hint.png" alt="hint" />
+        <img class="hint" src="hint.png" alt="hint" />
       )}
     </div>
   );

@@ -2,7 +2,7 @@
 .row {
   display: flex;
   justify-content: flex-end;
-  width: 100%;
+  width: 450px;
   user-select: none;
 }
 
