@@ -3,7 +3,7 @@ import NumberDisplay from "./NumberDisplay";
 import KeyPad from "./KeyPad.js";
 import "./App.css";
 
-const secret = "9257148270093361";
+const defaultSecret = "9257148270093361";
 
 function App() {
   const [numbers, setNumbers] = React.useState("");
@@ -17,6 +17,9 @@ function App() {
   function handleDelete() {
     setNumbers((numbers) => numbers.slice(0, numbers.length - 1));
   }
+
+  const secret = new URL(window.location).searchParams.get('code') || defaultSecret
+  const hintText = new URL(window.location).searchParams.get('hintText') || defaultSecret
 
   const [first, second, third, fourth] = [
     numbers.slice(0, 4),
@@ -71,7 +74,9 @@ function App() {
           </div>
         </div>
       ) : (
-        <img class="hint" src="hint.png" alt="hint" />
+        <div class="hint" alt="hint" >
+		<span>{hintText}</span>
+	</div>
       )}
     </div>
   );
