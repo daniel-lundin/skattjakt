@@ -3,7 +3,7 @@ import "./KeyPad.css";
 export default function KeyPad({ onClick, onDelete }) {
   return (
     <>
-      <div class="row">
+      <div className="row">
         <button className="cell" onClick={() => onClick(1)}>
           1
         </button>
@@ -14,7 +14,7 @@ export default function KeyPad({ onClick, onDelete }) {
           3
         </button>
       </div>
-      <div class="row">
+      <div className="row">
         <button className="cell" onClick={() => onClick(4)}>
           4
         </button>
@@ -25,7 +25,7 @@ export default function KeyPad({ onClick, onDelete }) {
           6
         </button>
       </div>
-      <div class="row">
+      <div className="row">
         <button className="cell" onClick={() => onClick(7)}>
           7
         </button>
@@ -36,7 +36,7 @@ export default function KeyPad({ onClick, onDelete }) {
           9
         </button>
       </div>
-      <div class="row">
+      <div className="row">
         <button className="cell" onClick={() => onClick(0)}>
           0
         </button>
