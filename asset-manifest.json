@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/skattjakt/static/css/main.cf55ea05.chunk.css",
-    "main.js": "/skattjakt/static/js/main.9c44df9e.chunk.js",
-    "main.js.map": "/skattjakt/static/js/main.9c44df9e.chunk.js.map",
+    "main.css": "/skattjakt/static/css/main.49d6343a.chunk.css",
+    "main.js": "/skattjakt/static/js/main.c738d614.chunk.js",
+    "main.js.map": "/skattjakt/static/js/main.c738d614.chunk.js.map",
     "runtime-main.js": "/skattjakt/static/js/runtime-main.331f6ea1.js",
     "runtime-main.js.map": "/skattjakt/static/js/runtime-main.331f6ea1.js.map",
     "static/js/2.99648189.chunk.js": "/skattjakt/static/js/2.99648189.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.d77f197b.chunk.js": "/skattjakt/static/js/3.d77f197b.chunk.js",
     "static/js/3.d77f197b.chunk.js.map": "/skattjakt/static/js/3.d77f197b.chunk.js.map",
     "index.html": "/skattjakt/index.html",
-    "static/css/main.cf55ea05.chunk.css.map": "/skattjakt/static/css/main.cf55ea05.chunk.css.map",
+    "static/css/main.49d6343a.chunk.css.map": "/skattjakt/static/css/main.49d6343a.chunk.css.map",
     "static/js/2.99648189.chunk.js.LICENSE.txt": "/skattjakt/static/js/2.99648189.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.331f6ea1.js",
     "static/js/2.99648189.chunk.js",
-    "static/css/main.cf55ea05.chunk.css",
-    "static/js/main.9c44df9e.chunk.js"
+    "static/css/main.49d6343a.chunk.css",
+    "static/js/main.c738d614.chunk.js"
   ]
 }
