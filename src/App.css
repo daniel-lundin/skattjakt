@@ -35,6 +35,10 @@ body {
   flex-direction: column;
 }
 
+.reveal__code {
+  color: green;
+}
+
 .centered {
   display: flex;
   align-items: center;

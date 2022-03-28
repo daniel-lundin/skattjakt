@@ -4,12 +4,15 @@ import KeyPad from "./KeyPad.js";
 import "./App.css";
 
 const defaultSecret = "9257148270093361";
+const defaultRevealCode = "16 08 12";
+const defaultRevealText = "Koden till kassaskåpet är";
+const sizeOfKeypad = 4;
 
 function App() {
   const [numbers, setNumbers] = React.useState("");
 
   function handleNumber(number) {
-    if (numbers.length < 16) {
+    if (numbers.length < secretLength) {
       setNumbers((numbers) => numbers.concat(String(number)));
     }
   }
@@ -18,64 +21,54 @@ function App() {
     setNumbers((numbers) => numbers.slice(0, numbers.length - 1));
   }
 
-  const secret = new URL(window.location).searchParams.get('code') || defaultSecret
-  const hintText = new URL(window.location).searchParams.get('hintText') || defaultSecret
+  const queryParams = new URL(window.location).searchParams;
+  const rawSecret = queryParams.get('code') || defaultSecret;
+  const rawSecretLength = rawSecret.length;
 
-  const [first, second, third, fourth] = [
-    numbers.slice(0, 4),
-    numbers.slice(4, 8),
-    numbers.slice(8, 12),
-    numbers.slice(12, 16),
-  ];
+  const secretLength = rawSecretLength - (rawSecretLength % sizeOfKeypad);
+  const secret = rawSecret.slice(0, secretLength);
+  const numberOfKeyPads = Math.floor(secretLength / 4);
 
-  const [answer1, answer2, answer3, answer4] = [
-    secret.slice(0, 4),
-    secret.slice(4, 8),
-    secret.slice(8, 12),
-    secret.slice(12, 16),
-  ];
+  const revealText = queryParams.get('revealText') || defaultRevealText;
+  const revealCode = queryParams.get('revealCode') || defaultRevealCode;
+
+
+  let inputStrings = [];
+  for (let i=0; i<numberOfKeyPads; i++) {
+    inputStrings.push(numbers.slice(i*sizeOfKeypad, sizeOfKeypad+i*sizeOfKeypad));
+  }
+
+  let secretAnswers = [];
+  for (let i=0; i<numberOfKeyPads; i++) {
+    secretAnswers.push(secret.slice(i*sizeOfKeypad, sizeOfKeypad+i*sizeOfKeypad));
+  }
+  const numberDisplays = inputStrings.map((foo, index)=> (
+    <NumberDisplay
+      label={`Kod ${index +1}`}
+      length={sizeOfKeypad}
+      numberString={inputStrings[index]}
+      answer={secretAnswers[index]}
+      highlighted={numbers.length > (sizeOfKeypad*index) && numbers.length < (sizeOfKeypad*index + sizeOfKeypad)}
+    />
+  ));
 
   return (
     <div className="App">
       {numbers !== secret ? (
         <div className="safe centered">
           <div className="safe__codes centered">
-            <NumberDisplay
-              label="Kod 1"
-              length={4}
-              numberString={first}
-              answer={answer1}
-              highlighted={numbers.length < 4}
-            />
-            <NumberDisplay
-              label="Kod 2"
-              length={4}
-              numberString={second}
-              answer={answer2}
-              highlighted={numbers.length >= 4 && numbers.length < 8}
-            />
-            <NumberDisplay
-              label="Kod 3"
-              length={4}
-              numberString={third}
-              answer={answer3}
-              highlighted={numbers.length >= 8 && numbers.length < 12}
-            />
-            <NumberDisplay
-              label="Kod 4"
-              length={4}
-              numberString={fourth}
-              answer={answer4}
-              highlighted={numbers.length >= 12}
-            />
+            {numberDisplays}
           </div>
           <div className="safe__keypad centered">
             <KeyPad onClick={handleNumber} onDelete={handleDelete} />
           </div>
         </div>
       ) : (
-        <div class="hint" alt="hint" >
-		<span>{hintText}</span>
+        <div className="hint" alt="hint" >
+		<span className='reveal__code'>
+      {revealText}<br/>
+      {revealCode}
+      </span>
 	</div>
       )}
     </div>
